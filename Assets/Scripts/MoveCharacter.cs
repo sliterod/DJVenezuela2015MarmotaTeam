@@ -281,8 +281,9 @@ public class MoveCharacter : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     IEnumerator ShowFinalSequencePanel() {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
 
-        this.SendMessage("ActivateSequencePanel");   
+        this.SendMessage("ActivateSequencePanel");
+        this.SendMessage("ChangeCrosshair");
     }
 }

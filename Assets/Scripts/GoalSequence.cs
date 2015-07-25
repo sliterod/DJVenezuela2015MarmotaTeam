@@ -31,6 +31,15 @@ public class GoalSequence : MonoBehaviour {
     void Update() {
         if (canCaptureSequence) {
 
+            if (Input.GetKeyDown(KeyCode.Z)) {
+                CaptureSequence("Z");
+            }
+
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                CaptureSequence("X");
+            }
+
         }
     }
 
@@ -73,14 +82,7 @@ public class GoalSequence : MonoBehaviour {
 
         for (int i = 0; i < keyArray.Length; i++)
         {
-            if (i == 0)
-            {
-                sequenceText.text = keyArray[i];
-            }
-            else {
-                sequenceText.text = "   " + sequenceText.text + keyArray[i];
-            }
-            
+            sequenceText.text = sequenceText.text + keyArray[i] + "   ";
         }
     }
 
@@ -96,10 +98,13 @@ public class GoalSequence : MonoBehaviour {
             CheckSequence();
 
             arrayIndex += 1;
-        }
-        else {
-            print("Revisando secuencia...");
-            canCaptureSequence = false;
+
+            if (arrayIndex == capturedSequenceArray.Length) {
+                print("Revisando secuencia...");
+                canCaptureSequence = false;
+
+                print("Respuestas correctas: " + correctAnswers);
+            }
         }
 
     }
