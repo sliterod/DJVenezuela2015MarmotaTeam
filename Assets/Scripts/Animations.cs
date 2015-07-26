@@ -93,28 +93,29 @@ public class Animations : MonoBehaviour {
     /// <summary>
     /// Animacion idle del boss
     /// </summary>
-    void BossIdleAnimation() {
+    public void BossIdleAnimation() {
         boss.CrossFade("idle");
     }
 
     /// <summary>
     /// Animacion first appeareance
     /// </summary>
-    void BossFirstAppearAnimation() {
+    public void BossFirstAppearAnimation() {
         boss.PlayQueued("first", QueueMode.PlayNow);
+        boss.PlayQueued("taunt", QueueMode.CompleteOthers);
     }
 
     /// <summary>
     /// Animacion deflect
     /// </summary>
-    void BossDeflectAnimation() {
+    public void BossDeflectAnimation() {
         boss.PlayQueued("deflect", QueueMode.PlayNow);
     }
 
     /// <summary>
     /// Animacion deflect jump
     /// </summary>
-    void BossJumpDeflectAnimation()
+    public void BossJumpDeflectAnimation()
     {
         boss.PlayQueued("jumpDeflect", QueueMode.PlayNow);
     }
@@ -122,7 +123,7 @@ public class Animations : MonoBehaviour {
     /// <summary>
     /// Animacion defeated
     /// </summary>
-    void BossJumpDefeatedAnimation()
+    public void BossJumpDefeatedAnimation()
     {
         boss.PlayQueued("defeated", QueueMode.PlayNow);
     }
@@ -130,7 +131,7 @@ public class Animations : MonoBehaviour {
     /// <summary>
     /// Animacion deflect en el aire
     /// </summary>
-    void BossDeflectAirAnimation()
+    public void BossDeflectAirAnimation()
     {
         boss.PlayQueued("deflectAir", QueueMode.PlayNow);
     }
@@ -138,7 +139,7 @@ public class Animations : MonoBehaviour {
     /// <summary>
     /// Animacion deflect
     /// </summary>
-    void BossTauntAnimation()
+    public void BossTauntAnimation()
     {
         boss.PlayQueued("taunt", QueueMode.PlayNow);
     }

@@ -69,6 +69,8 @@ public class GoalSequence : MonoBehaviour {
                 CaptureSequence("X");
             }
 
+            animations.BossFirstAppearAnimation();
+
         }
 
         if (canShootBall) {
@@ -309,6 +311,9 @@ public class GoalSequence : MonoBehaviour {
     /// Mueve el jefe para que detenga o no la pelota
     /// </summary>
     void MoveBoss() {
+
+        animations.BossJumpDeflectAnimation();
+
         if (boss.position.y <= bossPosition.y)
         {
             boss.position = new Vector3(boss.position.x,
@@ -335,6 +340,7 @@ public class GoalSequence : MonoBehaviour {
         
     }
 
+
     /// <summary>
     /// Activa el panel correspondiente a la victoria o derrota
     /// </summary>
@@ -342,9 +348,11 @@ public class GoalSequence : MonoBehaviour {
     {
         if (correctAnswers == 6) {
             this.GetComponent<GamePanels>().ActivateVictoryPanel();
+            animations.BossJumpDefeatedAnimation();
         }
-        else if (correctAnswers == 6) {
+        else if (correctAnswers != 6) {
             this.GetComponent<GamePanels>().ActivateDefeatPanel();
+            animations.BossTauntAnimation();
         }
 
     }
