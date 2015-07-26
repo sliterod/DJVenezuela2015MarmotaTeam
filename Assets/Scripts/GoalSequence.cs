@@ -181,7 +181,9 @@ public class GoalSequence : MonoBehaviour {
         if (correctAnswers == 6)
         {
             sequenceTitle.text = "¡Has visto a través de su defensa!";
-            sequenceText.text = "¡Ahora haz click para disparar!";
+            sequenceText.text = "¡Presiona click derecho o izquierdo para disparar!";
+
+            this.GetComponent<SoundManager>().LoadAudioFile("cry");
 
             StartCoroutine(DeactivateCoroutine());
 
@@ -190,6 +192,8 @@ public class GoalSequence : MonoBehaviour {
         {
             sequenceTitle.text = "¡Este será un tiro difícil!";
             sequenceText.text = "¡Ahora haz click para disparar!";
+
+            this.GetComponent<SoundManager>().LoadAudioFile("laugh");
 
             StartCoroutine(DeactivateCoroutine());
         }

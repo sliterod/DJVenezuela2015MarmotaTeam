@@ -11,3 +11,4 @@
 
 #Crashes
 /[Ll]ibrary/CrashedAssetImports.txt
+*.suo

@@ -93,6 +93,8 @@ public class MoveCharacter : MonoBehaviour {
             ballShot = true;
             ball.GetComponent<SphereCollider>().enabled = true;
             ball.gameObject.SendMessage("stop");
+
+            this.GetComponent<SoundManager>().LoadAudioFile("kick");
         }
 
         if (ballShot)
@@ -149,6 +151,7 @@ public class MoveCharacter : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Z) && !isDashing && isBallLost) {
             isDashing = true;
+            this.GetComponent<SoundManager>().LoadAudioFile("dash");
 
             ActivateDashingCollider(true);
             StartCoroutine(ReturnToStanding());
@@ -210,6 +213,7 @@ public class MoveCharacter : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.X) && !isJumping && character.position.y == -1.0f)
         {
             isJumping = true;
+            this.GetComponent<SoundManager>().LoadAudioFile("jump");
         }
 
         if (isJumping && !isFalling && character.position.y < 3.0f)
