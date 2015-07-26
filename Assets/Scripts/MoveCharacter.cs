@@ -89,6 +89,7 @@ public class MoveCharacter : MonoBehaviour {
 
             ballShot = true;
             ball.GetComponent<SphereCollider>().enabled = true;
+            ball.gameObject.SendMessage("stop");
         }
 
         if (ballShot)
@@ -190,6 +191,7 @@ public class MoveCharacter : MonoBehaviour {
                                   ball.position.z);
 
         ball.position = newPosition;
+        ball.gameObject.SendMessage("changeDirection");
 
         isBallLost = false;
         ballShot = false;

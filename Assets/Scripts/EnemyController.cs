@@ -32,6 +32,8 @@ public class EnemyController : MonoBehaviour {
                                        enemyPosition.z);
 
         ball.position = newBallPosition;
+        ball.gameObject.SendMessage("changeDirection");
+        ball.gameObject.SendMessage("resume");
 
         GameObject.Find(enemyName).SendMessage("ResetBehaviour");
     }
