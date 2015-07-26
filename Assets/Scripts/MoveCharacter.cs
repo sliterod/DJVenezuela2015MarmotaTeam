@@ -36,6 +36,8 @@ public class MoveCharacter : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         animations = this.GetComponent<Animations>();
+
+        Time.timeScale = 1.0f;
 	}
 
     void Start() {
@@ -235,6 +237,7 @@ public class MoveCharacter : MonoBehaviour {
 
         ball.position = newPosition;
         ball.gameObject.SendMessage("changeDirection");
+        ball.gameObject.SendMessage("resume");
 
         isBallLost = false;
         ballShot = false;
@@ -338,7 +341,6 @@ public class MoveCharacter : MonoBehaviour {
 
         GameObject.Find("CloudsNearArray").SendMessage("StopClouds");
         GameObject.Find("CloudsFarArray").SendMessage("StopClouds");
-        GameObject.Find("GradasArray").SetActive(false);
 
         GameObject.Find("Ball").SendMessage("stop");
         GameObject.Find("Enemies").SetActive(false);

@@ -76,8 +76,15 @@ ModelImporter:
     4300004: ShoulderPadsR
     4300006: ShoulderPAdsL
     4300008: Rockets
-    7400000: Take 001
+    7400000: idle
+    7400002: first
+    7400004: jumpDeflect
+    7400006: deflect
+    7400008: defeated
+    7400010: deflectAir
+    7400012: taunt
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Body
   materials:
     importMaterials: 1
@@ -98,7 +105,602 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 23
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Centro de gravedad
+        weight: 1
+      - path: Centro de gravedad/FemurL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL/END
+        weight: 1
+      - path: Centro de gravedad/FemurR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR/END 1
+        weight: 1
+      - path: Centro de gravedad/Panza y culo
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/END 2
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/Hair
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL/END
+          3
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/ShoulderPAdsL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR/ENDR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/ShoulderPadsR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Rockets
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: first
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Centro de gravedad
+        weight: 1
+      - path: Centro de gravedad/FemurL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL/END
+        weight: 1
+      - path: Centro de gravedad/FemurR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR/END 1
+        weight: 1
+      - path: Centro de gravedad/Panza y culo
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/END 2
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/Hair
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL/END
+          3
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/ShoulderPAdsL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR/ENDR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/ShoulderPadsR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Rockets
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: jumpDeflect
+      takeName: Take 001
+      firstFrame: 40
+      lastFrame: 58
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Centro de gravedad
+        weight: 1
+      - path: Centro de gravedad/FemurL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL/END
+        weight: 1
+      - path: Centro de gravedad/FemurR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR/END 1
+        weight: 1
+      - path: Centro de gravedad/Panza y culo
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/END 2
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/Hair
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL/END
+          3
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/ShoulderPAdsL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR/ENDR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/ShoulderPadsR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Rockets
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: deflect
+      takeName: Take 001
+      firstFrame: 90
+      lastFrame: 113
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Centro de gravedad
+        weight: 1
+      - path: Centro de gravedad/FemurL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL/END
+        weight: 1
+      - path: Centro de gravedad/FemurR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR/END 1
+        weight: 1
+      - path: Centro de gravedad/Panza y culo
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/END 2
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/Hair
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL/END
+          3
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/ShoulderPAdsL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR/ENDR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/ShoulderPadsR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Rockets
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: defeated
+      takeName: Take 001
+      firstFrame: 59
+      lastFrame: 89
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Centro de gravedad
+        weight: 1
+      - path: Centro de gravedad/FemurL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL/END
+        weight: 1
+      - path: Centro de gravedad/FemurR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR/END 1
+        weight: 1
+      - path: Centro de gravedad/Panza y culo
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/END 2
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/Hair
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL/END
+          3
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/ShoulderPAdsL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR/ENDR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/ShoulderPadsR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Rockets
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: deflectAir
+      takeName: Take 001
+      firstFrame: 114
+      lastFrame: 141
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Centro de gravedad
+        weight: 1
+      - path: Centro de gravedad/FemurL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL/END
+        weight: 1
+      - path: Centro de gravedad/FemurR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR/END 1
+        weight: 1
+      - path: Centro de gravedad/Panza y culo
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/END 2
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/Hair
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL/END
+          3
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/ShoulderPAdsL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR/ENDR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/ShoulderPadsR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Rockets
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: taunt
+      takeName: Take 001
+      firstFrame: 142
+      lastFrame: 219
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Centro de gravedad
+        weight: 1
+      - path: Centro de gravedad/FemurL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL
+        weight: 1
+      - path: Centro de gravedad/FemurL/PiernaL/PieL/END
+        weight: 1
+      - path: Centro de gravedad/FemurR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR
+        weight: 1
+      - path: Centro de gravedad/FemurR/PiernaR/PieR/END 1
+        weight: 1
+      - path: Centro de gravedad/Panza y culo
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/END 2
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Cabeza/Hair
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/BrazoL/ManoL/END
+          3
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaL/AntebrazoL/ShoulderPAdsL
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/BrazoR/ManoR/ENDR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/ClaviculaR/AntebrazoR/ShoulderPadsR
+        weight: 1
+      - path: Centro de gravedad/Panza y culo/Abdomen/Rockets
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -136,7 +738,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
