@@ -16,11 +16,11 @@ public class GamePanels : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (pauseOn) {
-                Application.LoadLevel(0);
+                Application.LoadLevel("intro");
             }
 
             if (victoryPanelOn || defeatPanelOn) {
-                Application.LoadLevel(0);
+                Application.LoadLevel("intro");
             }
         }
 
@@ -36,7 +36,7 @@ public class GamePanels : MonoBehaviour {
 
             if (victoryPanelOn || defeatPanelOn)
             {
-                Application.LoadLevel(1);
+                Application.LoadLevel("main");
             }
         }
     }

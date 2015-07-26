@@ -303,7 +303,17 @@ public class GoalSequence : MonoBehaviour {
             ball.position.y >= ballFinalPosition.y)
         {
             isBallShot = false;
-            ActivateVictoryDefeatPanel();
+
+            if (correctAnswers == 6)
+            {
+                animations.BossJumpDefeatedAnimation();
+            }
+            else if (correctAnswers != 6)
+            {
+                animations.BossTauntAnimation();
+            }
+
+            StartCoroutine(ActivatePanel());
         }
     }
 
@@ -341,6 +351,12 @@ public class GoalSequence : MonoBehaviour {
     }
 
 
+    IEnumerator ActivatePanel() {
+        yield return new WaitForSeconds(3.0f);
+
+        ActivateVictoryDefeatPanel();
+    }
+
     /// <summary>
     /// Activa el panel correspondiente a la victoria o derrota
     /// </summary>
@@ -348,11 +364,9 @@ public class GoalSequence : MonoBehaviour {
     {
         if (correctAnswers == 6) {
             this.GetComponent<GamePanels>().ActivateVictoryPanel();
-            animations.BossJumpDefeatedAnimation();
         }
         else if (correctAnswers != 6) {
             this.GetComponent<GamePanels>().ActivateDefeatPanel();
-            animations.BossTauntAnimation();
         }
 
     }
