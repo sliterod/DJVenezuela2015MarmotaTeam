@@ -7,6 +7,7 @@ public class CollisionCharacter : MonoBehaviour {
     {
         if (other.name.Contains("Enemy")) {
             print("Colision con enemigo, restar vida");
+            GameObject.Find("Manager").SendMessage("SetGameOver");
         }
 
         if (other.name == "Ball")

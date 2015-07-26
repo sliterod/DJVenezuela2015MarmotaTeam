@@ -61,18 +61,31 @@ public class Animations : MonoBehaviour {
 
     public void CharacterHurtAnimation()
     {
+        character.Stop("run");
         character.CrossFade("hurt");
     }
 
-    public void CharacterShotAnimation(bool isEndGame)
+    /// <summary>
+    /// Animacion de disparar la pelota
+    /// </summary>
+    /// <param name="isEndGame">Pregunta si es el final del juego</param>
+    /// <param name="shotInGoal">Pregunta si el tiro se hizo a la porteria</param>
+    public void CharacterShotAnimation(bool isEndGame, bool shotInGoal)
     {
+        character.Stop("run");
         character.PlayQueued("shot",QueueMode.PlayNow);
 
         if (isEndGame)
         {
             //Placeholder
+            if (shotInGoal) {
+                character.PlayQueued("jumpUp", QueueMode.PlayNow);
+            }
+            else if (!shotInGoal){
+                character.PlayQueued("hurt", QueueMode.PlayNow);
+            }
         }
-        else {
+        else if (!isEndGame){
             character.PlayQueued("run", QueueMode.CompleteOthers);
         }
     }
