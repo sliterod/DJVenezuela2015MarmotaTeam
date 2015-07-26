@@ -4,30 +4,81 @@ using System.Collections;
 public class Animations : MonoBehaviour {
 
     public Animation character;
-    public Animation enemy;
+    public Animation boss;
+
+    //Booleans
+    bool isRunning;
 
 	// Use this for initialization
 	void Start () {
         character = character.GetComponent<Animation>();
-        enemy = enemy.GetComponent<Animation>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    public void DashAnimation() {
-        character.CrossFade("");
+        //boss = boss.GetComponent<Animation>();
     }
 
-    public void IdleAnimation() {
-        character.CrossFade("");
+    void Update() {
+
     }
 
-    public void JumpAnimation()
+    /*
+        Character
+    */
+    public void CharacterDashAnimation() {
+        character.PlayQueued("dash", QueueMode.PlayNow);
+        character.PlayQueued("run", QueueMode.CompleteOthers);
+    }
+
+    public void CharacterIdleAnimation() {
+        character.CrossFade("idle");
+    }
+
+    public void CharacterJumpUpAnimation()
     {
-        character.CrossFade("");
+        StartCoroutine(JumpCoroutine());   
     }
 
+    IEnumerator JumpCoroutine() {
+
+        character.PlayQueued("jumpUp", QueueMode.PlayNow);
+
+        yield return new WaitForSeconds(0.7f);
+
+        character.PlayQueued("jumpDown", QueueMode.CompleteOthers);
+
+        yield return new WaitForSeconds(1.0f);
+
+        character.PlayQueued("run", QueueMode.CompleteOthers);
+    }
+
+    public void CharacterJumpDownAnimation()
+    {
+        character.CrossFade("jumpDown");
+    }
+
+    public void CharacterRunAnimation()
+    {
+        character.CrossFade("run");
+    }
+
+    public void CharacterHurtAnimation()
+    {
+        character.CrossFade("hurt");
+    }
+
+    public void CharacterShotAnimation(bool isEndGame)
+    {
+        character.PlayQueued("shot",QueueMode.PlayNow);
+
+        if (isEndGame)
+        {
+            //Placeholder
+        }
+        else {
+            character.PlayQueued("run", QueueMode.CompleteOthers);
+        }
+    }
+
+
+    /*
+        Boss
+    */
 }

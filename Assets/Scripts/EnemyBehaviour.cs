@@ -17,9 +17,14 @@ public class EnemyBehaviour : MonoBehaviour {
     //Pelota
     Transform ball;
 
+    //Animaciones
+    Animation enemy;
+
 	// Use this for initialization
 	void Start () {
         jumpSpeed = 0.1f;
+        enemy = this.GetComponent<Animation>();
+
         ChooseBehaviour();
     }
 	
@@ -43,7 +48,9 @@ public class EnemyBehaviour : MonoBehaviour {
     /// </summary>
     void Run() {
         print("Mi comportamiento es correr" + this.name);
+        
         //Animacion de carrera
+        EnemyRunAnimation();
     }
 
     /// <summary>
@@ -85,7 +92,7 @@ public class EnemyBehaviour : MonoBehaviour {
             Vector3 newPosition;
             
 
-            if (this.transform.position.y - jumpSpeed > 0.0f)
+            if (this.transform.position.y - jumpSpeed > -1.0f)
             {
                 newPosition = new Vector3(this.transform.position.x,
                                           this.transform.position.y - jumpSpeed,
@@ -105,13 +112,13 @@ public class EnemyBehaviour : MonoBehaviour {
                 
 
             }
-            else if (this.transform.position.y - jumpSpeed <= 0.0f)
+            else if (this.transform.position.y - jumpSpeed <= -1.0f)
             {
                 isJumping = true;
                 isFalling = false;
 
                 this.transform.position = new Vector3(this.transform.position.x,
-                                                      0.0f,
+                                                      -1.0f,
                                                       this.transform.position.z);
 
                 if (enemyHasBall)
@@ -154,7 +161,7 @@ public class EnemyBehaviour : MonoBehaviour {
 
         //Posicion
         this.transform.localPosition = new Vector3(this.transform.localPosition.x,
-                                                   0.0f,
+                                                   -1.0f,
                                                    0.0f);
 
         //Colliders
@@ -183,5 +190,28 @@ public class EnemyBehaviour : MonoBehaviour {
         {
             mustDash = true;
         }
+    }
+
+    /*
+        Enemy
+    */
+    public void EnemyJumpAnimation()
+    {
+        enemy.CrossFade("jump");
+    }
+
+    public void EnemyRunAnimation()
+    {
+        enemy.CrossFade("run");
+    }
+
+    public void EnemySlideAnimation()
+    {
+        enemy.CrossFade("slide");
+    }
+
+    public void EneymHurtAnimation()
+    {
+        enemy.CrossFade("hurt");
     }
 }

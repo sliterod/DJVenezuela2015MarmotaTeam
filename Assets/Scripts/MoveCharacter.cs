@@ -28,10 +28,17 @@ public class MoveCharacter : MonoBehaviour {
     //Camara
     public GameObject perspectiveCamera;
 
+    //Animations
+    Animations animations;
+
     // Use this for initialization
-    void Start () {
-	
+    void Awake () {
+        animations = this.GetComponent<Animations>();
 	}
+
+    void Start() {
+        RunAnimation();
+    }
 
     // Update is called once per frame
     void Update() {
@@ -44,6 +51,17 @@ public class MoveCharacter : MonoBehaviour {
             Dash();
             Jump();
         }
+    }
+
+    /// <summary>
+    /// Animacion de correr del personaje
+    /// </summary>
+    void RunAnimation() {
+        animations.CharacterRunAnimation();
+    }
+
+    void JumpUpAnimation() {
+        animations.CharacterJumpUpAnimation();
     }
 
     /// <summary>
@@ -90,11 +108,13 @@ public class MoveCharacter : MonoBehaviour {
             crosshairPositionX = mousePos.x;
             crosshairPositionY = mousePos.y;
 
+            animations.CharacterShotAnimation(false);
+            this.GetComponent<SoundManager>().LoadAudioFile("kick");
+
             ballShot = true;
             ball.GetComponent<SphereCollider>().enabled = true;
             ball.gameObject.SendMessage("stop");
-
-            this.GetComponent<SoundManager>().LoadAudioFile("kick");
+            
         }
 
         if (ballShot)
@@ -153,6 +173,8 @@ public class MoveCharacter : MonoBehaviour {
             isDashing = true;
             this.GetComponent<SoundManager>().LoadAudioFile("dash");
 
+            animations.CharacterDashAnimation();
+
             ActivateDashingCollider(true);
             StartCoroutine(ReturnToStanding());
         }
@@ -210,10 +232,11 @@ public class MoveCharacter : MonoBehaviour {
     /// </summary>
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.X) && !isJumping && character.position.y == -1.0f)
+        if (Input.GetKeyDown(KeyCode.X) && !isJumping && character.position.y == -2.0f)
         {
             isJumping = true;
             this.GetComponent<SoundManager>().LoadAudioFile("jump");
+            JumpUpAnimation();
         }
 
         if (isJumping && !isFalling && character.position.y < 3.0f)
@@ -247,7 +270,7 @@ public class MoveCharacter : MonoBehaviour {
             Vector3 newPosition;
             
 
-            if (character.position.y - jumpSpeed > -1.0f)
+            if (character.position.y - jumpSpeed > -2.0f)
             {
                 newPosition = new Vector3(character.position.x,
                                           character.position.y - jumpSpeed,
@@ -268,13 +291,13 @@ public class MoveCharacter : MonoBehaviour {
                 }
                 
             }
-            else if (character.position.y - jumpSpeed <= -1.0f)
+            else if (character.position.y - jumpSpeed <= -2.0f)
             {
                 isJumping = false;
                 isFalling = false;
 
                 character.position = new Vector3(character.position.x,
-                                                 -1.0f,
+                                                 -2.0f,
                                                  character.position.z);
 
                 if (!isBallLost)
