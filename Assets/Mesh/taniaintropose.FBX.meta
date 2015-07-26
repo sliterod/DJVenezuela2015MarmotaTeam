@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: fa707b584f2f51d49bd241b3a66066a8
+timeCreated: 1437943848
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Abdomen
+    100002: AntebrazoL
+    100004: AntebrazoR
+    100006: Bonesystem
+    100008: BrazoL
+    100010: BrazoR
+    100012: Cabeza
+    100014: Clavicula R
+    100016: ClaviculaL
+    100018: Cuello
+    100020: END
+    100022: EndL
+    100024: EndL 1
+    100026: EndR
+    100028: EndR 1
+    100030: FemurL
+    100032: FemurR
+    100034: ManoL
+    100036: ManoR
+    100038: "Mu\xF1ecaL"
+    100040: "Mu\xF1ecaR"
+    100042: PeroneL
+    100044: PeroneR
+    100046: PieL
+    100048: PieR
+    100050: Sphere001
+    100052: //RootNode
+    100054: Torso
+    400000: Abdomen
+    400002: AntebrazoL
+    400004: AntebrazoR
+    400006: Bonesystem
+    400008: BrazoL
+    400010: BrazoR
+    400012: Cabeza
+    400014: Clavicula R
+    400016: ClaviculaL
+    400018: Cuello
+    400020: END
+    400022: EndL
+    400024: EndL 1
+    400026: EndR
+    400028: EndR 1
+    400030: FemurL
+    400032: FemurR
+    400034: ManoL
+    400036: ManoR
+    400038: "Mu\xF1ecaL"
+    400040: "Mu\xF1ecaR"
+    400042: PeroneL
+    400044: PeroneR
+    400046: PieL
+    400048: PieR
+    400050: Sphere001
+    400052: //RootNode
+    400054: Torso
+    2300000: Sphere001
+    3300000: Sphere001
+    4300000: Sphere001
+    4300002: Torso
+    7400000: Pose
+    9500000: //RootNode
+    13700000: Torso
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Pose
+      takeName: Take 001
+      firstFrame: -27
+      lastFrame: -26
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bonesystem
+        weight: 1
+      - path: Bonesystem/Abdomen
+        weight: 1
+      - path: Bonesystem/Abdomen/Clavicula R
+        weight: 1
+      - path: Bonesystem/Abdomen/Clavicula R/AntebrazoR
+        weight: 1
+      - path: Bonesystem/Abdomen/Clavicula R/AntebrazoR/BrazoR
+        weight: 1
+      - path: "Bonesystem/Abdomen/Clavicula R/AntebrazoR/BrazoR/Mu\xF1ecaR"
+        weight: 1
+      - path: "Bonesystem/Abdomen/Clavicula R/AntebrazoR/BrazoR/Mu\xF1ecaR/ManoR"
+        weight: 1
+      - path: "Bonesystem/Abdomen/Clavicula R/AntebrazoR/BrazoR/Mu\xF1ecaR/ManoR/EndR
+          1"
+        weight: 1
+      - path: Bonesystem/Abdomen/ClaviculaL
+        weight: 1
+      - path: Bonesystem/Abdomen/ClaviculaL/AntebrazoL
+        weight: 1
+      - path: Bonesystem/Abdomen/ClaviculaL/AntebrazoL/BrazoL
+        weight: 1
+      - path: "Bonesystem/Abdomen/ClaviculaL/AntebrazoL/BrazoL/Mu\xF1ecaL"
+        weight: 1
+      - path: "Bonesystem/Abdomen/ClaviculaL/AntebrazoL/BrazoL/Mu\xF1ecaL/ManoL"
+        weight: 1
+      - path: "Bonesystem/Abdomen/ClaviculaL/AntebrazoL/BrazoL/Mu\xF1ecaL/ManoL/EndL
+          1"
+        weight: 1
+      - path: Bonesystem/Abdomen/Cuello
+        weight: 1
+      - path: Bonesystem/Abdomen/Cuello/Cabeza
+        weight: 1
+      - path: Bonesystem/Abdomen/Cuello/Cabeza/END
+        weight: 1
+      - path: Bonesystem/Abdomen/Cuello/Cabeza/Sphere001
+        weight: 1
+      - path: Bonesystem/FemurL
+        weight: 1
+      - path: Bonesystem/FemurL/PeroneL
+        weight: 1
+      - path: Bonesystem/FemurL/PeroneL/PieL
+        weight: 1
+      - path: Bonesystem/FemurL/PeroneL/PieL/EndL
+        weight: 1
+      - path: Bonesystem/FemurR
+        weight: 1
+      - path: Bonesystem/FemurR/PeroneR
+        weight: 1
+      - path: Bonesystem/FemurR/PeroneR/PieR
+        weight: 1
+      - path: Bonesystem/FemurR/PeroneR/PieR/EndR
+        weight: 1
+      - path: Torso
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

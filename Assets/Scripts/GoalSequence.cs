@@ -37,17 +37,22 @@ public class GoalSequence : MonoBehaviour {
     Vector3 ballFinalPosition;
     Vector3 bossPosition;
 
+    //Animaciones
+    Animations animations;
+
     // Use this for initialization
     void Start () {
         keyArray = new string[6];
         capturedSequenceArray = new string[6];
         arrayIndex = 0;
 
-        leftShotOk = new Vector3(118.0f,0.0f,5.0f);
-        leftShotMiss = new Vector3(113.0f, 0.0f, 5.0f);
+        leftShotOk = new Vector3(116.0f,0.0f,5.0f);
+        leftShotMiss = new Vector3(111.0f, 0.0f, 5.0f);
 
-        rightShotOk = new Vector3(118.0f, 0.0f, -5.0f);
-        rightShotMiss = new Vector3(113.0f, 0.0f, -5.0f);
+        rightShotOk = new Vector3(116.0f, 0.0f, -5.0f);
+        rightShotMiss = new Vector3(111.0f, 0.0f, -5.0f);
+
+        animations = this.GetComponent<Animations>();
 
         GenerateSequence();
     }
@@ -221,11 +226,15 @@ public class GoalSequence : MonoBehaviour {
             {
                 ballFinalPosition = leftShotOk;
                 bossPosition = rightShotOk;
+
+                animations.CharacterShotAnimation(true, true);
             }
             else if (correctAnswers != 6)
             {
                 ballFinalPosition = leftShotMiss;
                 bossPosition = leftShotMiss;
+
+                animations.CharacterShotAnimation(true, false);
             }
         }
         else if (mouseButton == 1)
@@ -234,16 +243,21 @@ public class GoalSequence : MonoBehaviour {
             {
                 ballFinalPosition = rightShotOk;
                 bossPosition = leftShotOk;
+
+                animations.CharacterShotAnimation(true, true);
             }
             else if (correctAnswers != 6)
             {
                 ballFinalPosition = rightShotMiss;
                 bossPosition = rightShotMiss;
+
+                animations.CharacterShotAnimation(true, false);
             }
         }
 
         canShootBall = false;
         isBallShot = true;
+
     }
 
     /// <summary>
@@ -251,7 +265,7 @@ public class GoalSequence : MonoBehaviour {
     /// </summary>
     void ShootBall() {
         
-        if (ball.position.x <= ballFinalPosition.x)//118 posicion de la porteria
+        if (ball.position.x <= ballFinalPosition.x)
         {
             ball.position = new Vector3(ball.position.x + 0.3f,
                                         ball.position.y,
@@ -287,7 +301,7 @@ public class GoalSequence : MonoBehaviour {
             ball.position.y >= ballFinalPosition.y)
         {
             isBallShot = false;
-            print("Pelota culmino su trayectoria,");
+            ActivateVictoryDefeatPanel();
         }
     }
 
@@ -319,5 +333,19 @@ public class GoalSequence : MonoBehaviour {
             }
         }
         
+    }
+
+    /// <summary>
+    /// Activa el panel correspondiente a la victoria o derrota
+    /// </summary>
+    void ActivateVictoryDefeatPanel()
+    {
+        if (correctAnswers == 6) {
+            this.GetComponent<GamePanels>().ActivateVictoryPanel();
+        }
+        else if (correctAnswers == 6) {
+            this.GetComponent<GamePanels>().ActivateDefeatPanel();
+        }
+
     }
 }

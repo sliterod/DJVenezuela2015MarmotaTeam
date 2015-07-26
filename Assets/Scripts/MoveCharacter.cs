@@ -20,6 +20,8 @@ public class MoveCharacter : MonoBehaviour {
     bool isBallFalling;
     bool isBallLost;
     bool isLevelEnd;
+    bool isGameOver;
+    bool isPausedGame;
 
     //Posiciones
     float crosshairPositionX;
@@ -43,7 +45,7 @@ public class MoveCharacter : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (!isLevelEnd) {
+        if (!isLevelEnd && !isPausedGame) {
             ChangeCharacterPosition();
             ChangeBallPosition();
 
@@ -60,8 +62,18 @@ public class MoveCharacter : MonoBehaviour {
         animations.CharacterRunAnimation();
     }
 
+    /// <summary>
+    /// Animacion de salto
+    /// </summary>
     void JumpUpAnimation() {
         animations.CharacterJumpUpAnimation();
+    }
+
+    /// <summary>
+    /// Animacion de espera
+    /// </summary>
+    void IdleAnimation() {
+        animations.CharacterIdleAnimation();
     }
 
     /// <summary>
@@ -71,11 +83,14 @@ public class MoveCharacter : MonoBehaviour {
     {
         Vector3 newPosition;
 
-        newPosition = new Vector3(character.position.x + speed,
-                                  character.position.y,
-                                  character.position.z);
+        if (!isGameOver)
+        {
+            newPosition = new Vector3(character.position.x + speed,
+                                      character.position.y,
+                                      character.position.z);
 
-        character.position = newPosition;
+            character.position = newPosition;
+        }
     }
 
     /// <summary>
@@ -84,7 +99,7 @@ public class MoveCharacter : MonoBehaviour {
     void ChangeBallPosition() {
         Vector3 newPosition;
 
-        if (!isBallLost)
+        if (!isBallLost && !isGameOver)
         {
             newPosition = new Vector3(ball.position.x + speed,
                                        ball.position.y,
@@ -108,7 +123,7 @@ public class MoveCharacter : MonoBehaviour {
             crosshairPositionX = mousePos.x;
             crosshairPositionY = mousePos.y;
 
-            animations.CharacterShotAnimation(false);
+            animations.CharacterShotAnimation(false, false);
             this.GetComponent<SoundManager>().LoadAudioFile("kick");
 
             ballShot = true;
@@ -326,6 +341,9 @@ public class MoveCharacter : MonoBehaviour {
         GameObject.Find("GradasArray").SetActive(false);
 
         GameObject.Find("Ball").SendMessage("stop");
+        GameObject.Find("Enemies").SetActive(false);
+
+        IdleAnimation();
 
         StartCoroutine(ShowFinalSequencePanel());
     }
@@ -341,4 +359,20 @@ public class MoveCharacter : MonoBehaviour {
         this.SendMessage("DeactivateCrossHair");
     }
 
+    /// <summary>
+    /// Coloca el juego en modo game over
+    /// </summary>
+    void SetGameOver() {
+        isGameOver = true;
+        animations.CharacterHurtAnimation();
+        this.GetComponent<GamePanels>().ActivateDefeatPanel();
+    }
+
+    /// <summary>
+    /// Coloca el juego en pausa
+    /// </summary>
+    /// <param name="state">Estado del juego</param>
+    void SetPause(bool state) {
+        isPausedGame = state;
+    }
 }

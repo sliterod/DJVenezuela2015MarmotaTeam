@@ -59,6 +59,7 @@ public class EnemyBehaviour : MonoBehaviour {
     void Jump() {
         print("Mi comportamiento es saltar" + this.name);
         //Animación de salto
+        EnemyJumpAnimation();
 
         //Rutina de salto
         if (isJumping && !isFalling && this.transform.position.y < 3.0f)
@@ -138,7 +139,7 @@ public class EnemyBehaviour : MonoBehaviour {
     void Dash() {
         print("Mi comportamiento es deslizarme");
         //Animacion de dash
-
+        EnemySlideAnimation();
 
         //Collider de dash
         this.GetComponent<BoxCollider>().enabled = false;

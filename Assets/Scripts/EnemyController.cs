@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour {
         
         newEnemy.transform.parent = enemyParent;
         newEnemy.transform.localPosition = new Vector3 (lastEnemyPositionX,
-                                                        0.0f,
+                                                        -1.0f,
                                                         0.0f);
         
     }
