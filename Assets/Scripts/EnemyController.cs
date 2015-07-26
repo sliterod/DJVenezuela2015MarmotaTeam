@@ -33,6 +33,7 @@ public class EnemyController : MonoBehaviour {
 
         ball.position = newBallPosition;
 
+        GameObject.Find(enemyName).SendMessage("ResetBehaviour");
     }
 
     /// <summary>

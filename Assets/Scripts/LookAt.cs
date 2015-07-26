@@ -47,13 +47,13 @@ public class LookAt : MonoBehaviour {
 
         if (camera.position.z - 0.01f >= 0.0f)
         {
-            camera.position = new Vector3(camera.position.x,
+            camera.position = new Vector3(96.0f,//camera.position.x,
                                           camera.position.y,
                                           camera.position.z - 0.01f);
         }
         else if (camera.position.z - 0.01f < 0.0f)
         {
-            camera.position = new Vector3(camera.position.x,
+            camera.position = new Vector3(96.0f,//camera.position.x,
                                           camera.position.y,
                                           0.0f);
 

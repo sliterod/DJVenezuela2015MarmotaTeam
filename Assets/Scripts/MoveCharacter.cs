@@ -207,25 +207,28 @@ public class MoveCharacter : MonoBehaviour {
             isJumping = true;
         }
 
-        if (isJumping && !isFalling && character.position.y < 2.0f)
+        if (isJumping && !isFalling && character.position.y < 3.0f)
         {
             Vector3 newPositionCharacter;
-            Vector3 newPositionBall;
-
+            
             newPositionCharacter = new Vector3(character.position.x,
                                                character.position.y + jumpSpeed,
                                                character.position.z);
+            
+            character.position = newPositionCharacter;
+            
 
-            newPositionBall = new Vector3(ball.position.x,
+            if (!isBallLost) {
+                Vector3 newPositionBall;
+                newPositionBall = new Vector3(ball.position.x,
                                           ball.position.y + jumpSpeed,
                                           ball.position.z);
 
-            character.position = newPositionCharacter;
-            ball.position = newPositionBall;
-
+                ball.position = newPositionBall;
+            }
 
         }
-        else if (isJumping && !isFalling && character.position.y >= 2.0f)
+        else if (isJumping && !isFalling && character.position.y >= 3.0f)
         {
             isFalling = true;
         }
@@ -233,20 +236,27 @@ public class MoveCharacter : MonoBehaviour {
         if (isFalling)
         {
             Vector3 newPosition;
-            Vector3 newPositionBall;
+            
 
             if (character.position.y - jumpSpeed > -1.0f)
             {
                 newPosition = new Vector3(character.position.x,
                                           character.position.y - jumpSpeed,
                                           character.position.z);
+                
+                character.position = newPosition;
+                
 
-                newPositionBall = new Vector3(ball.position.x,
+                if (!isBallLost) {
+
+                    Vector3 newPositionBall;
+
+                    newPositionBall = new Vector3(ball.position.x,
                                               ball.position.y - jumpSpeed,
                                               ball.position.z);
 
-                character.position = newPosition;
-                ball.position = newPositionBall;
+                    ball.position = newPositionBall;
+                }
                 
             }
             else if (character.position.y - jumpSpeed <= -1.0f)
@@ -258,9 +268,12 @@ public class MoveCharacter : MonoBehaviour {
                                                  -1.0f,
                                                  character.position.z);
 
-                ball.position = new Vector3(ball.position.x,
-                                            -1.7f,
-                                            ball.position.z);
+                if (!isBallLost)
+                {
+                    ball.position = new Vector3(ball.position.x,
+                                                -1.7f,
+                                                ball.position.z);
+                }
             }
 
         }
@@ -273,6 +286,10 @@ public class MoveCharacter : MonoBehaviour {
         isLevelEnd = true;
 
         GameObject.Find("Main Camera").SendMessage("SetLevelEnd");
+
+        GameObject.Find("CloudsNearArray").SendMessage("StopClouds");
+        GameObject.Find("CloudsFarArray").SendMessage("StopClouds");
+
         StartCoroutine(ShowFinalSequencePanel());
     }
 
@@ -286,4 +303,5 @@ public class MoveCharacter : MonoBehaviour {
         this.SendMessage("ActivateSequencePanel");
         this.SendMessage("ChangeCrosshair");
     }
+
 }
