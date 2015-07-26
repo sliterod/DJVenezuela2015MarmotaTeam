@@ -64,7 +64,7 @@ public class EnemyController : MonoBehaviour {
     float PositionGenerator() {
         float result;
 
-        result = Random.Range(25.0f, 35.0f);
+        result = Random.Range(10.0f, 12.0f);
 
         return result;
     }

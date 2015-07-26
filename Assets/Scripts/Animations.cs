@@ -12,11 +12,7 @@ public class Animations : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         character = character.GetComponent<Animation>();
-        //boss = boss.GetComponent<Animation>();
-    }
-
-    void Update() {
-
+        boss = boss.GetComponent<Animation>();
     }
 
     /*
@@ -94,4 +90,56 @@ public class Animations : MonoBehaviour {
     /*
         Boss
     */
+    /// <summary>
+    /// Animacion idle del boss
+    /// </summary>
+    void BossIdleAnimation() {
+        boss.CrossFade("idle");
+    }
+
+    /// <summary>
+    /// Animacion first appeareance
+    /// </summary>
+    void BossFirstAppearAnimation() {
+        boss.PlayQueued("first", QueueMode.PlayNow);
+    }
+
+    /// <summary>
+    /// Animacion deflect
+    /// </summary>
+    void BossDeflectAnimation() {
+        boss.PlayQueued("deflect", QueueMode.PlayNow);
+    }
+
+    /// <summary>
+    /// Animacion deflect jump
+    /// </summary>
+    void BossJumpDeflectAnimation()
+    {
+        boss.PlayQueued("jumpDeflect", QueueMode.PlayNow);
+    }
+
+    /// <summary>
+    /// Animacion defeated
+    /// </summary>
+    void BossJumpDefeatedAnimation()
+    {
+        boss.PlayQueued("defeated", QueueMode.PlayNow);
+    }
+
+    /// <summary>
+    /// Animacion deflect en el aire
+    /// </summary>
+    void BossDeflectAirAnimation()
+    {
+        boss.PlayQueued("deflectAir", QueueMode.PlayNow);
+    }
+
+    /// <summary>
+    /// Animacion deflect
+    /// </summary>
+    void BossTauntAnimation()
+    {
+        boss.PlayQueued("taunt", QueueMode.PlayNow);
+    }
 }

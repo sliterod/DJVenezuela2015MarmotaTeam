@@ -166,7 +166,7 @@ public class EnemyBehaviour : MonoBehaviour {
                                                    0.0f);
 
         //Colliders
-        this.GetComponent<BoxCollider>().enabled = true;
+        this.GetComponent<BoxCollider>().enabled = false;
         this.GetComponent<CapsuleCollider>().enabled = false;
     }
 
