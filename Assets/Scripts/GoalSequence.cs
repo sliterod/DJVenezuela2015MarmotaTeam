@@ -19,7 +19,6 @@ public class GoalSequence : MonoBehaviour {
     bool canCaptureSequence;
     bool canShootBall;
     bool isBallShot;
-    bool bossMoves;
 
     //Valores numericos
     int arrayIndex;
@@ -28,11 +27,27 @@ public class GoalSequence : MonoBehaviour {
     //Posicion del mouse
     Vector3 mouseClickPosition;
 
-	// Use this for initialization
-	void Start () {
+    //Posicion de balon
+    Vector3 leftShotOk;
+    Vector3 rightShotOk;
+    Vector3 leftShotMiss;
+    Vector3 rightShotMiss;
+
+    //Vectores finales
+    Vector3 ballFinalPosition;
+    Vector3 bossPosition;
+
+    // Use this for initialization
+    void Start () {
         keyArray = new string[6];
         capturedSequenceArray = new string[6];
         arrayIndex = 0;
+
+        leftShotOk = new Vector3(118.0f,0.0f,5.0f);
+        leftShotMiss = new Vector3(113.0f, 0.0f, 5.0f);
+
+        rightShotOk = new Vector3(118.0f, 0.0f, -5.0f);
+        rightShotMiss = new Vector3(113.0f, 0.0f, -5.0f);
 
         GenerateSequence();
     }
@@ -52,8 +67,11 @@ public class GoalSequence : MonoBehaviour {
         }
 
         if (canShootBall) {
-            if (Input.GetMouseButtonDown(0)) {
-                CheckMousePosition();
+            if (Input.GetMouseButtonDown(0)) {//Disparar a la izquierda
+                CheckMouseClickedSide(0);
+            }
+            else if (Input.GetMouseButtonDown(1)) {//Derecha
+                CheckMouseClickedSide(1);
             }
         }
 
@@ -165,27 +183,60 @@ public class GoalSequence : MonoBehaviour {
             sequenceTitle.text = "¡Has visto a través de su defensa!";
             sequenceText.text = "¡Ahora haz click para disparar!";
 
-            bossMoves = false;
+            StartCoroutine(DeactivateCoroutine());
+
         }
         else if (correctAnswers < 6)
         {
             sequenceTitle.text = "¡Este será un tiro difícil!";
             sequenceText.text = "¡Ahora haz click para disparar!";
 
-            bossMoves = true;
+            StartCoroutine(DeactivateCoroutine());
         }
     }
 
     /// <summary>
-    /// Revisa la posición actual del Mouse
+    /// Desactiva el panel de secuencia
     /// </summary>
-    void CheckMousePosition() {
-        Vector3 mousePos;
-        mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+    /// <returns>La cantidad de segundos que debe esperar para ejecutar la accion</returns>
+    IEnumerator DeactivateCoroutine() {
+        yield return new WaitForSeconds(1.0f);
 
-        mouseClickPosition = mousePos;
+        sequencePanel.SetActive(false);
+    }
 
-        print("Posición actual del mouse: " + mouseClickPosition);
+    /// <summary>
+    /// Revisa a que boton se le ha hecho click
+    /// </summary>
+    void CheckMouseClickedSide(int mouseButton) {
+
+        if (mouseButton == 0)
+        {//Izquierdo
+
+            if (correctAnswers == 6)
+            {
+                ballFinalPosition = leftShotOk;
+                bossPosition = rightShotOk;
+            }
+            else if (correctAnswers != 6)
+            {
+                ballFinalPosition = leftShotMiss;
+                bossPosition = leftShotMiss;
+            }
+        }
+        else if (mouseButton == 1)
+        {//Derecho
+            if (correctAnswers == 6)
+            {
+                ballFinalPosition = rightShotOk;
+                bossPosition = leftShotOk;
+            }
+            else if (correctAnswers != 6)
+            {
+                ballFinalPosition = rightShotMiss;
+                bossPosition = rightShotMiss;
+            }
+        }
 
         canShootBall = false;
         isBallShot = true;
@@ -195,93 +246,74 @@ public class GoalSequence : MonoBehaviour {
     /// Dispara la pelota
     /// </summary>
     void ShootBall() {
-
-        if (!bossMoves)
+        
+        if (ball.position.x <= ballFinalPosition.x)//118 posicion de la porteria
         {
-            print("Jefe no se mueve");
-            if (ball.position.x <= 118.0f)//118 posicion de la porteria
-            {
-                ball.position = new Vector3(ball.position.x + 0.3f,
-                                            ball.position.y,
-                                            ball.position.z);
-            }
+            ball.position = new Vector3(ball.position.x + 0.3f,
+                                        ball.position.y,
+                                        ball.position.z);
+        }
 
-            if (ball.position.y <= mouseClickPosition.y)
-            {
-                ball.position = new Vector3(ball.position.x,
-                                            ball.position.y + 0.1f,
-                                            ball.position.z);
-            }
+        if (ball.position.y <= ballFinalPosition.y)
+        {
+            ball.position = new Vector3(ball.position.x,
+                                        ball.position.y + 0.1f,
+                                        ball.position.z);
+        }
 
-            if (ball.position.z <= mouseClickPosition.z)
+        if (ballFinalPosition.z > 0) {
+            if (ball.position.z <= ballFinalPosition.z)
             {
                 ball.position = new Vector3(ball.position.x,
                                             ball.position.y,
                                             ball.position.z + 0.1f);
-            }
-
-            if (ball.position.x >= 118.0f &&
-                ball.position.y >= mouseClickPosition.y &&
-                ball.position.z >= mouseClickPosition.z)
-            {
-                isBallShot = false;
-                print("Pelota culmino su trayectoria, jefe estatico");
             }
         }
-        else if (bossMoves)
+        else if (ballFinalPosition.z < 0) {
+            if (ball.position.z >= ballFinalPosition.z)
+            {
+                ball.position = new Vector3(ball.position.x,
+                                            ball.position.y,
+                                            ball.position.z - 0.1f);
+            }
+        }
+        
+
+        if (ball.position.x >= ballFinalPosition.x &&
+            ball.position.y >= ballFinalPosition.y)
         {
-            print("Jefe se mueve");
-
-            if (ball.position.x <= 113.0f)//113 posicion del jefe
-            {
-                ball.position = new Vector3(ball.position.x + 0.1f,
-                                            ball.position.y,
-                                            ball.position.z);
-            }
-
-            if (ball.position.y <= mouseClickPosition.y)
-            {
-                ball.position = new Vector3(ball.position.x,
-                                            ball.position.y + 0.1f,
-                                            ball.position.z);
-            }
-
-            if (ball.position.z <= mouseClickPosition.z)
-            {
-                ball.position = new Vector3(ball.position.x,
-                                            ball.position.y,
-                                            ball.position.z + 0.1f);
-            }
-
-            if (ball.position.x >= 113.0f && 
-                ball.position.y >= mouseClickPosition.y && 
-                ball.position.z >= mouseClickPosition.z)
-            {
-                isBallShot = false;
-                print("Pelota culmino su trayectoria, jefe movil");
-            }
+            isBallShot = false;
+            print("Pelota culmino su trayectoria,");
         }
     }
 
     /// <summary>
-    /// Mueve el jefe para que detenga la pelota
+    /// Mueve el jefe para que detenga o no la pelota
     /// </summary>
     void MoveBoss() {
-        if (bossMoves)
+        if (boss.position.y <= bossPosition.y)
         {
-            if (boss.position.y <= mouseClickPosition.y)
-            {
-                boss.position = new Vector3(boss.position.x,
-                                            boss.position.y + 0.2f,
-                                            boss.position.z);
-            }
+            boss.position = new Vector3(boss.position.x,
+                                        boss.position.y + 0.2f,
+                                        boss.position.z);
+        }
 
-            if (boss.position.z <= mouseClickPosition.z)
+        if (bossPosition.z > 0.0f) {
+            if (boss.position.z <= bossPosition.z)
             {
                 boss.position = new Vector3(boss.position.x,
                                             boss.position.y,
                                             boss.position.z + 0.2f);
             }
         }
+        else if (bossPosition.z < 0.0f) {
+            if (boss.position.z >= bossPosition.z)
+            {
+                boss.position = new Vector3(boss.position.x,
+                                            boss.position.y,
+                                            boss.position.z - 0.2f);
+            }
+        }
+        
     }
 }

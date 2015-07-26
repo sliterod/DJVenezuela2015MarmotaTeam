@@ -67,10 +67,11 @@ public class LookAt : MonoBehaviour {
     /// </summary>
     void ChangeCameraRotation()
     {
-
         Transform camera;
-
+        
         camera = this.transform;
+       
+
 
         if (camera.rotation.y + 0.05f <= 0.75f)
         {
@@ -83,5 +84,6 @@ public class LookAt : MonoBehaviour {
         {
             canRotate = false;
         }
+
     }
 }
