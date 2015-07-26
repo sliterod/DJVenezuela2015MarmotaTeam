@@ -25,6 +25,9 @@ public class MoveCharacter : MonoBehaviour {
     float crosshairPositionX;
     float crosshairPositionY;
 
+    //Camara
+    public GameObject perspectiveCamera;
+
     // Use this for initialization
     void Start () {
 	
@@ -287,10 +290,15 @@ public class MoveCharacter : MonoBehaviour {
     void SetLevelEnd() {
         isLevelEnd = true;
 
-        GameObject.Find("Main Camera").SendMessage("SetLevelEnd");
+        GameObject.Find("Main Camera").GetComponent<Camera>().enabled = false;
+        perspectiveCamera.SetActive(true);
+
 
         GameObject.Find("CloudsNearArray").SendMessage("StopClouds");
         GameObject.Find("CloudsFarArray").SendMessage("StopClouds");
+        GameObject.Find("GradasArray").SetActive(false);
+
+        GameObject.Find("Ball").SendMessage("stop");
 
         StartCoroutine(ShowFinalSequencePanel());
     }
@@ -303,7 +311,7 @@ public class MoveCharacter : MonoBehaviour {
         yield return new WaitForSeconds(1.0f);
 
         this.SendMessage("ActivateSequencePanel");
-        this.SendMessage("ChangeCrosshair");
+        this.SendMessage("DeactivateCrossHair");
     }
 
 }

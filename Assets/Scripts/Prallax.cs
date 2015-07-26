@@ -33,4 +33,5 @@ public class Prallax : MonoBehaviour {
     void StopClouds() {
         stopClouds = true;
     }
+
 }
